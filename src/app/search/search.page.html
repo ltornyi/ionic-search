@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>search</ion-title>
+    <ion-title>Search</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item >
+    <ion-label position="floating"> Search for Organizations, Contacts </ion-label>
+    <ion-input placeholder="" debounce=200 (ionChange)="onSearchChanged($event.target)"></ion-input>
+  </ion-item>
+  <ion-list>
+    <ion-item > <ion-label color="primary"> Organizations </ion-label> </ion-item>
+    <ion-item *ngFor="let org of orgs">
+      <ion-label> {{ org.clientName }} / {{ org.clientType }}</ion-label>
+    </ion-item>
+    <ion-item> <ion-label color="primary"> Contacts </ion-label> </ion-item>
+    <ion-item *ngFor="let contact of contacts">
+      <ion-label> {{ contact.clientName }} / {{ contact.orgName }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
