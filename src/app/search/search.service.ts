@@ -20,7 +20,7 @@ export class SearchService {
     if (searchExpression === '') {
       return [];
     }
-    return [...(this.orgs.filter(e => e.clientName.includes(searchExpression)))];
+    return [...this.orgs.filter(e => e.clientName.includes(searchExpression))];
   }
 
   getAllContacts(searchExpression: string) {
