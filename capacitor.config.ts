@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.ltornyi.ionic-search',
   appName: 'ionic-search',
   webDir: 'www',
   bundledWebRuntime: false

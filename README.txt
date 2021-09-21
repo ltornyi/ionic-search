@@ -30,8 +30,7 @@ Create search service and inject in search.page.ts
 
 This is commit "hardcoded search with input field"
 
-
-
+5. Create ios app
 
 brew install cocoapods
 install xcode from the app store
@@ -39,4 +38,13 @@ xcode-select --install
 
 Set up your developer account in Xcode in preferences->Accounts
 
+capacitor.config.ts: modify appId property
+
 ionic capacitor add ios
+
+cd ios/App
+pod install2
+
+open in XCode: ionic capacitor open ios
+
+This is commit "Create iOS app"

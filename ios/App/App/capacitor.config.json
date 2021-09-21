@@ -1,0 +1,6 @@
+{
+	"appId": "com.ltornyi.ionic-search",
+	"appName": "ionic-search",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
