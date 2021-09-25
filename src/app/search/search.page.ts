@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Contact } from './contact.model';
 import { Org } from './org.model';
 import { SearchService } from './search.service';
@@ -9,25 +10,19 @@ import { SearchService } from './search.service';
   styleUrls: ['./search.page.scss'],
 })
 export class SearchPage implements OnInit {
-  orgs: Org[];
-  contacts: Contact[];
-  searchExpression: string;
+  orgs$: Observable<Org[]>;
+  contacts$: Observable<Contact[]>;
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
-    this.searchExpression = '';
-    this.executeSearch(this.searchExpression);
+    this.orgs$ = this.searchService.orgs;
+    this.contacts$ = this.searchService.contacts;
   }
 
   onSearchChanged(item) {
-    this.searchExpression = item.value;
-    this.executeSearch(this.searchExpression);
-  }
-
-  executeSearch(expr) {
-    this.orgs = this.searchService.getAllOrgs(expr);
-    this.contacts = this.searchService.getAllContacts(expr);
+    this.searchService.searchOrgs(item.value).subscribe();
+    this.searchService.searchContacts(item.value).subscribe();
   }
 
 }

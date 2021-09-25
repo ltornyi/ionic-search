@@ -43,8 +43,15 @@ capacitor.config.ts: modify appId property
 ionic capacitor add ios
 
 cd ios/App
-pod install2
+pod install
 
 open in XCode: ionic capacitor open ios
 
 This is commit "Create iOS app"
+
+6. Call backend api
+
+refactor search.service to call REST api and expose resulting orgs and contacts as Observables
+change search.page to use search.service's orgs and contacts
+
+This is commit "Call backend api"
